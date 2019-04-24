@@ -9,21 +9,22 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.2.4" />
     <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Sciendo.Topper\Topper\Sciendo.Config\Sciendo.Config.csproj" />
+    <ProjectReference Include="..\Sciendo.BandMembers.Processor\Sciendo.BandMembers.Processor.csproj" />
     <ProjectReference Include="..\Sciendo.Csv.Processor\Sciendo.Csv.Processor.csproj" />
-    <ProjectReference Include="..\Sciendo.ExGraph.Process\Sciendo.ExGraph.Process.csproj" />
+    <ProjectReference Include="..\Sciendo.Music.Library.BusinessLogic\Sciendo.Music.Library.BusinessLogic.csproj" />
+    <ProjectReference Include="..\Sciendo.Music.Library.Contracts\Sciendo.Music.Library.Contracts.csproj" />
+    <ProjectReference Include="..\Sciendo.Wiki.Processor\Sciendo.Wiki.Processor.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="SEC.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <None Update="allBands.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

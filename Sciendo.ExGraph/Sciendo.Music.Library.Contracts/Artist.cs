@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sciendo.ExGraph.Process
+namespace Sciendo.Music.Library.Contracts
 {
     public class Artist
     {

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace Sciendo.ExGraph.Process
+namespace Sciendo.Neo4J.Provider
 {
     public interface IGetGraphObjects<T> where T:class
     {

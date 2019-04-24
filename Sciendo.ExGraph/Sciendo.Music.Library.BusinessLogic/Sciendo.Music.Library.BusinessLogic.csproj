@@ -5,9 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CsvHelper" Version="12.1.2" />
-    <PackageReference Include="Neo4j.Driver" Version="1.7.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
   </ItemGroup>
@@ -15,7 +12,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Sciendo.BandMembers.Processor\Sciendo.BandMembers.Processor.csproj" />
     <ProjectReference Include="..\Sciendo.Music.Library.Contracts\Sciendo.Music.Library.Contracts.csproj" />
-    <ProjectReference Include="..\Sciendo.Neo4J.Provider\Sciendo.Neo4J.Provider.csproj" />
     <ProjectReference Include="..\Sciendo.Wiki.Processor\Sciendo.Wiki.Processor.csproj" />
   </ItemGroup>
 

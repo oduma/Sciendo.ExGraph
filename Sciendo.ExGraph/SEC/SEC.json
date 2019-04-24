@@ -1,0 +1,7 @@
+﻿{
+  "neo4jConfig": {
+    "Host": "bolt://localhost:7687",
+    "UserName": "neo4j",
+    "Password": "admin"
+  }
+}

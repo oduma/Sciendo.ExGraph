@@ -3,11 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEC", "SEC\SEC.csproj", "{965C6979-420C-4948-B4F4-64C82E3169A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SEC", "SEC\SEC.csproj", "{965C6979-420C-4948-B4F4-64C82E3169A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sciendo.ExGraph.Process", "Sciendo.ExGraph.Process\Sciendo.ExGraph.Process.csproj", "{0164B0D7-CB7F-40DC-8E32-5583E728BBA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sciendo.ExGraph.Process", "Sciendo.ExGraph.Process\Sciendo.ExGraph.Process.csproj", "{0164B0D7-CB7F-40DC-8E32-5583E728BBA4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sciendo.Config", "..\..\Sciendo.Topper\Topper\Sciendo.Config\Sciendo.Config.csproj", "{81956158-0D82-4C21-9788-83558AEAD054}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sciendo.Neo4J.Provider", "Sciendo.Neo4J.Provider\Sciendo.Neo4J.Provider.csproj", "{CF8954EA-7445-4AF6-BB7E-6966E0E8C677}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sciendo.Wiki.Processor", "Sciendo.Wiki.Processor\Sciendo.Wiki.Processor.csproj", "{06255DC4-F112-4E91-801E-06C5A8283126}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sciendo.BandMembers.Processor", "Sciendo.BandMembers.Processor\Sciendo.BandMembers.Processor.csproj", "{F5AC1A76-6BB6-4A35-89D4-17E79CC4FEA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIE", "WIE\WIE.csproj", "{50D25089-7CAB-46D6-B61D-B6D4CC1463D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sciendo.Csv.Processor", "Sciendo.Csv.Processor\Sciendo.Csv.Processor.csproj", "{E7DA0C5B-2057-4F56-A6C3-7D830916F980}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sciendo.Music.Library.Contracts", "Sciendo.Music.Library.Contracts\Sciendo.Music.Library.Contracts.csproj", "{BBD1C384-7B1E-4E88-914F-6A69F7F526DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sciendo.Music.Library.BusinessLogic", "Sciendo.Music.Library.BusinessLogic\Sciendo.Music.Library.BusinessLogic.csproj", "{E68A59BE-F74D-4F0C-B510-E4D9ED73E549}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +41,34 @@ Global
 		{81956158-0D82-4C21-9788-83558AEAD054}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81956158-0D82-4C21-9788-83558AEAD054}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81956158-0D82-4C21-9788-83558AEAD054}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF8954EA-7445-4AF6-BB7E-6966E0E8C677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF8954EA-7445-4AF6-BB7E-6966E0E8C677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF8954EA-7445-4AF6-BB7E-6966E0E8C677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF8954EA-7445-4AF6-BB7E-6966E0E8C677}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06255DC4-F112-4E91-801E-06C5A8283126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06255DC4-F112-4E91-801E-06C5A8283126}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06255DC4-F112-4E91-801E-06C5A8283126}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06255DC4-F112-4E91-801E-06C5A8283126}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5AC1A76-6BB6-4A35-89D4-17E79CC4FEA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5AC1A76-6BB6-4A35-89D4-17E79CC4FEA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5AC1A76-6BB6-4A35-89D4-17E79CC4FEA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5AC1A76-6BB6-4A35-89D4-17E79CC4FEA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50D25089-7CAB-46D6-B61D-B6D4CC1463D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50D25089-7CAB-46D6-B61D-B6D4CC1463D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50D25089-7CAB-46D6-B61D-B6D4CC1463D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50D25089-7CAB-46D6-B61D-B6D4CC1463D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7DA0C5B-2057-4F56-A6C3-7D830916F980}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7DA0C5B-2057-4F56-A6C3-7D830916F980}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7DA0C5B-2057-4F56-A6C3-7D830916F980}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7DA0C5B-2057-4F56-A6C3-7D830916F980}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBD1C384-7B1E-4E88-914F-6A69F7F526DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBD1C384-7B1E-4E88-914F-6A69F7F526DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBD1C384-7B1E-4E88-914F-6A69F7F526DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBD1C384-7B1E-4E88-914F-6A69F7F526DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E68A59BE-F74D-4F0C-B510-E4D9ED73E549}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E68A59BE-F74D-4F0C-B510-E4D9ED73E549}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E68A59BE-F74D-4F0C-B510-E4D9ED73E549}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E68A59BE-F74D-4F0C-B510-E4D9ED73E549}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,1 @@
+﻿[ "(?<=current_members)(.*?)(?=\n)", "(?<=past_members)(.*?)(?=\n)" ]
