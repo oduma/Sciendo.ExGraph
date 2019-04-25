@@ -15,5 +15,7 @@ namespace WIE
 
         [ConfigProperty("do")]
         public ProcessType ProcessType { get; set; }
+
+        public string SimpleWordsSeparator => " ";
     }
 }

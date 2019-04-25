@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Sciendo.BandMembers.Processor.KnowledgeBaseLoader;
 
 namespace Sciendo.BandMembers.Processor
 {
@@ -8,24 +9,21 @@ namespace Sciendo.BandMembers.Processor
     {
 
         private readonly string[] _wikiPediaCharacters;
-        public WikiCleanMemberOfMarkdownCharactersRule(IKnowledgeBaseLoader<string[]> knowledgeBaseLoader, string ruleName, int rulePriority)
+        public WikiCleanMemberOfMarkdownCharactersRule(IKnowledgeBaseLoader<string[]> knowledgeBaseLoader, int rulePriority)
         {
-            RuleName = ruleName;
             RulePriority = rulePriority;
-            _wikiPediaCharacters=knowledgeBaseLoader.LoadKnowledgeBaseObject(RuleName);
+            _wikiPediaCharacters=knowledgeBaseLoader.LoadKnowledgeBaseObject(this.GetType().Name);
         }
         public IEnumerable<string> ApplyRule(string input)
         {
-            string bandMember = string.Empty;
             foreach (var wikiPediaCharacter in _wikiPediaCharacters)
             {
-                bandMember = input.Replace(wikiPediaCharacter, "");
+                input = input.Replace(wikiPediaCharacter, "");
             }
 
-            return new []{bandMember};
+            yield return input;
         }
 
-        public string RuleName { get; }
         public int RulePriority { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Sciendo.BandMembers.Processor;
+using Sciendo.BandMembers.Processor.KnowledgeBaseLoader;
 
 namespace Sciendo.Music.Library.BusinessLogic
 {
@@ -14,9 +15,11 @@ namespace Sciendo.Music.Library.BusinessLogic
         protected override void LoadSetOfRules()
         {
             RegisterProcessingRule(new WikiPageTextExtractMembersAreasRule(
-                new KnowledgeBaseLoaderStringArray(_knowledgeBaseFolder), "WikiPageTextExtractMemberAreasRule", 100));
+                new KnowledgeBaseLoaderStringArray(_knowledgeBaseFolder), 100));
+            RegisterProcessingRule(new WikiExcludeAllHtmlCommentsAndRefsRule(
+                new KnowledgeBaseLoaderStringArray(_knowledgeBaseFolder), 150));
             RegisterProcessingRule(new WikiIndividualMembersExtractRule(
-                new KnowledgeBaseLoaderStringArray(_knowledgeBaseFolder), "WikiIndividualMembersExtractRule", 200));
+                new KnowledgeBaseLoaderStringArray(_knowledgeBaseFolder), 200));
 
         }
     }

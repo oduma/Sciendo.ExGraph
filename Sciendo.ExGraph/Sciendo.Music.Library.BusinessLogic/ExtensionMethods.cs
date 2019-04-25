@@ -21,10 +21,10 @@ namespace Sciendo.Music.Library.BusinessLogic
                 new ExtractBandMembersFromWikiEngine(knowledgeBaseFolder));
         }
 
-        public static BandWithExternalInfo CleanWikiPageMembers(this BandWithExternalInfo bandWithExternalInfo, string knowledgeBaseFolder)
+        public static BandWithExternalInfo CleanWikiPageMembers(this BandWithExternalInfo bandWithExternalInfo, string knowledgeBaseFolder, string simpleWordsSeparator)
         {
             var bandWithWiki = new BandWithWikiInfo();
-            return bandWithWiki.CleanMembers(bandWithExternalInfo, new CleanMembersFromWikiEngine(knowledgeBaseFolder));
+            return bandWithWiki.CleanMembers(bandWithExternalInfo, new CleanMembersFromWikiEngine(knowledgeBaseFolder,simpleWordsSeparator));
         }
 
 

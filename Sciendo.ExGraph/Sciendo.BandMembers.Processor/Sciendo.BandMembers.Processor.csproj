@@ -9,13 +9,31 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="KonwledgeBase\WikiCleanMemberOfMarkdownCharactersRule.json">
+    <None Update="KnowledgeBase\TransformToLowerTrimmedSimpleLatinRule.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="KnowledgeBase\WikiCleanMemberOfMarkdownCharactersRule.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="KonwledgeBase\WikiIndividualMembersExtractRule.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Update="KnowledgeBase\WikiExcludeAllHtmlCommentsRule.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="KonwledgeBase\WikiPageTextExtractMemberAreasRule.json">
+    <None Update="KnowledgeBase\WikiExcludeArtistsNotContainingAnyAlphaCharactersRule.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="KnowledgeBase\WikiExcludeFullNonArtistsRule.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="KnowledgeBase\WikiExcludeIfArtistContainsRule.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="KnowledgeBase\WikiExcludeWordsStartingWithRule.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="KnowledgeBase\WikiIndividualMembersExtractRule.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="KnowledgeBase\WikiPageTextExtractMemberAreasRule.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

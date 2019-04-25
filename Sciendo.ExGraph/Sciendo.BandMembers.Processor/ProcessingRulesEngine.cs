@@ -25,7 +25,7 @@ namespace Sciendo.BandMembers.Processor
             var startingPoint = new string[] {input};
             foreach (var processingRule in ProcessingRules.OrderBy(r => r.RulePriority))
             {
-                startingPoint = (string[]) ApplyRule(processingRule, startingPoint);
+                startingPoint = ApplyRule(processingRule, startingPoint).ToArray();
             }
 
             return startingPoint;

@@ -4,17 +4,17 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
+using Sciendo.BandMembers.Processor.KnowledgeBaseLoader;
 
 namespace Sciendo.BandMembers.Processor
 {
     public class WikiPageTextExtractMembersAreasRule:IProcessingRule
     {
 
-        public WikiPageTextExtractMembersAreasRule(IKnowledgeBaseLoader<string[]> knowledgeBaseLoader, string ruleName, int rulePriority)
+        public WikiPageTextExtractMembersAreasRule(IKnowledgeBaseLoader<string[]> knowledgeBaseLoader,  int rulePriority)
         {
-            RuleName = ruleName;
             RulePriority = rulePriority;
-            _regexPatternsForMembers = knowledgeBaseLoader.LoadKnowledgeBaseObject(RuleName);
+            _regexPatternsForMembers = knowledgeBaseLoader.LoadKnowledgeBaseObject(this.GetType().Name);
         }
         private readonly string[] _regexPatternsForMembers;
         public IEnumerable<string> ApplyRule(string input)
@@ -27,8 +27,6 @@ namespace Sciendo.BandMembers.Processor
                     yield return possibleMatch.Value;
             }
         }
-
-        public string RuleName { get; private set; }
         public int RulePriority { get; private set; }
     }
 }

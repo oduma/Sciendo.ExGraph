@@ -8,8 +8,6 @@ namespace Sciendo.BandMembers.Processor
     {
         IEnumerable<string> ApplyRule(string input);
 
-        string RuleName { get; }
-
         int RulePriority { get;}
     }
 }

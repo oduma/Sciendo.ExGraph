@@ -93,7 +93,7 @@ namespace WIE
                     {
                         var inputData = IOManager.ReadWithMapper<BandWithExternalInfo, BandWithExternalInfoMap>(wieConfig.InputFile).ToList();
                         IOManager.WriteWithMapper<BandWithExternalInfo, BandWithExternalInfoMap>(
-                            inputData.Select(b=>b.CleanWikiPageMembers(KnowledgeBaseFolder)), wieConfig.OutputFile);
+                            inputData.Select(b=>b.CleanWikiPageMembers(KnowledgeBaseFolder,wieConfig.SimpleWordsSeparator)), wieConfig.OutputFile);
                     }
                     catch (Exception e)
                     {
@@ -109,7 +109,7 @@ namespace WIE
                     {
                         var inputData = IOManager.ReadWithMapper<Artist, ArtistMap>(wieConfig.InputFile).ToList();
                         IOManager.WriteWithMapper<BandWithExternalInfo, BandWithExternalInfoMap>(
-                            inputData.Select(b => b.LoadWikiPageId().LoadWikiPageMembers(KnowledgeBaseFolder).CleanWikiPageMembers(KnowledgeBaseFolder)), wieConfig.OutputFile);
+                            inputData.Select(b => b.LoadWikiPageId().LoadWikiPageMembers(KnowledgeBaseFolder).CleanWikiPageMembers(KnowledgeBaseFolder,wieConfig.SimpleWordsSeparator)), wieConfig.OutputFile);
                     }
                     catch (Exception e)
                     {
@@ -144,12 +144,6 @@ namespace WIE
             if (string.IsNullOrEmpty(wieConfig.OutputFile))
             {
                 Log.Error("Argument missing. CSV output file.");
-                return false;
-            }
-
-            if (!File.Exists(wieConfig.OutputFile))
-            {
-                Log.Error("CSV input file {0} not found.", wieConfig.OutputFile);
                 return false;
             }
 

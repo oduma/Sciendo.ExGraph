@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Sciendo.BandMembers.Processor
+﻿namespace Sciendo.BandMembers.Processor.KnowledgeBaseLoader
 {
     public interface IKnowledgeBaseLoader<T>
     {

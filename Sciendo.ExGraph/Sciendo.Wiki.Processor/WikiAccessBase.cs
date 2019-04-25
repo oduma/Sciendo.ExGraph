@@ -30,7 +30,7 @@ namespace Sciendo.Wiki.Processor
                     return string.Empty;
                 }
             }
-            catch (Exception e)
+            catch
             {
                 return string.Empty;
             }

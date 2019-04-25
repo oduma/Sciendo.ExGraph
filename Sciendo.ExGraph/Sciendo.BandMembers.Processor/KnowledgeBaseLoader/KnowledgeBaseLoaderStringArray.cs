@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
+﻿using System.IO;
 using Newtonsoft.Json;
 
-namespace Sciendo.BandMembers.Processor
+namespace Sciendo.BandMembers.Processor.KnowledgeBaseLoader
 {
     public class KnowledgeBaseLoaderStringArray:IKnowledgeBaseLoader<string[]>
     {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Sciendo.BandMembers.Processor.KnowledgeBaseLoader;
 
 namespace Sciendo.BandMembers.Processor
 {
@@ -8,11 +9,10 @@ namespace Sciendo.BandMembers.Processor
     {
         private readonly string[] _bandMembersSeparators;
 
-        public WikiIndividualMembersExtractRule(IKnowledgeBaseLoader<string[]> knowledgeBaseLoader, string ruleName, int rulePriority)
+        public WikiIndividualMembersExtractRule(IKnowledgeBaseLoader<string[]> knowledgeBaseLoader, int rulePriority)
         {
-            RuleName = ruleName;
             RulePriority = rulePriority;
-            _bandMembersSeparators=knowledgeBaseLoader.LoadKnowledgeBaseObject(RuleName);
+            _bandMembersSeparators=knowledgeBaseLoader.LoadKnowledgeBaseObject(this.GetType().Name);
         }
         public IEnumerable<string> ApplyRule(string input)
         {
@@ -24,7 +24,6 @@ namespace Sciendo.BandMembers.Processor
 
         }
 
-        public string RuleName { get; }
         public int RulePriority { get; set; }
     }
 }

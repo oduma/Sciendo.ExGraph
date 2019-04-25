@@ -6,6 +6,10 @@ namespace Sciendo.Music.Library.Contracts
 {
     public class BandWithExternalInfo:Artist
     {
+        public BandWithExternalInfo()
+        {
+
+        }
         public BandWithExternalInfo(Artist artist)
         {
             Name = artist.Name;

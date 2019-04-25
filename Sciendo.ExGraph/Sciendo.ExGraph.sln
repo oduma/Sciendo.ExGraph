@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sciendo.Music.Library.Contr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sciendo.Music.Library.BusinessLogic", "Sciendo.Music.Library.BusinessLogic\Sciendo.Music.Library.BusinessLogic.csproj", "{E68A59BE-F74D-4F0C-B510-E4D9ED73E549}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sciendo.BandMembers.Processor.Tests.Unit", "Sciendo.BandMembers.Processor.Tests.Unit\Sciendo.BandMembers.Processor.Tests.Unit.csproj", "{483F62C7-161F-40ED-A9A5-7A1DE2C13ADB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{E68A59BE-F74D-4F0C-B510-E4D9ED73E549}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E68A59BE-F74D-4F0C-B510-E4D9ED73E549}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E68A59BE-F74D-4F0C-B510-E4D9ED73E549}.Release|Any CPU.Build.0 = Release|Any CPU
+		{483F62C7-161F-40ED-A9A5-7A1DE2C13ADB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{483F62C7-161F-40ED-A9A5-7A1DE2C13ADB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{483F62C7-161F-40ED-A9A5-7A1DE2C13ADB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{483F62C7-161F-40ED-A9A5-7A1DE2C13ADB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
