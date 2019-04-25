@@ -12,7 +12,9 @@ namespace Sciendo.Csv.Processor.TypeConverters
     {
         public string ConvertToString(object value, IWriterRow row, MemberMapData memberMapData)
         {
-            return string.Join(";",((List<Artist>)value).Select(a=>a.Name));
+            if(value!=null)
+                return string.Join(";",((List<Artist>)value).Select(a=>a.Name));
+            return string.Empty;
         }
 
         public object ConvertFromString(string text, IReaderRow row, MemberMapData memberMapData)

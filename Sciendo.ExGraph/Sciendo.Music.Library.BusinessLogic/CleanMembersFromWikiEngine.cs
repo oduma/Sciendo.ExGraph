@@ -21,8 +21,6 @@ namespace Sciendo.Music.Library.BusinessLogic
         {
             RegisterProcessingRule(new WikiCleanMemberOfMarkdownCharactersRule(
                 new KnowledgeBaseLoaderStringArray(_knowledgeBaseFolder),  100));
-            RegisterProcessingRule(new WikiExcludeAllHtmlCommentsRule(
-                new KnowledgeBaseLoaderStringArray(_knowledgeBaseFolder), 150));
             RegisterProcessingRule(new TransformToLowerTrimmedSimpleLatinRule(
                 new KnowledgeBaseLoaderDictionaryStringString(_knowledgeBaseFolder), 200));
             RegisterProcessingRule(new WikiExcludeFullNonArtistsRule(

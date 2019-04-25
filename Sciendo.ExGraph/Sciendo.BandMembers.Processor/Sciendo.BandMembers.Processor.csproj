@@ -15,7 +15,7 @@
     <None Update="KnowledgeBase\WikiCleanMemberOfMarkdownCharactersRule.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="KnowledgeBase\WikiExcludeAllHtmlCommentsRule.json">
+    <None Update="KnowledgeBase\WikiExcludeAllHtmlCommentsAndRefsRule.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="KnowledgeBase\WikiExcludeArtistsNotContainingAnyAlphaCharactersRule.json">
@@ -33,7 +33,7 @@
     <None Update="KnowledgeBase\WikiIndividualMembersExtractRule.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="KnowledgeBase\WikiPageTextExtractMemberAreasRule.json">
+    <None Update="KnowledgeBase\WikiPageTextExtractMembersAreasRule.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
