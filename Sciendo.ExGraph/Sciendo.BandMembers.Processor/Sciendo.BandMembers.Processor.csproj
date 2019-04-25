@@ -9,6 +9,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="KnowledgeBase\TransformHtmlEncodedSequenceToTextRule.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="KnowledgeBase\TransformToLowerTrimmedSimpleLatinRule.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

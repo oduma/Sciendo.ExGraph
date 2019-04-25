@@ -1,1 +1,6 @@
-﻿["http:/"]
+﻿[
+  "http/",
+  "https/",
+  "urlhttps/" 
+
+]
