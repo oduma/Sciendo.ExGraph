@@ -92,8 +92,8 @@ namespace WIE
                     try
                     {
                         var inputData = IOManager.ReadWithMapper<BandWithExternalInfo, BandWithExternalInfoMap>(wieConfig.InputFile).ToList();
-                        IOManager.WriteWithMapper<BandWithExternalInfo, BandWithExternalInfoMap>(
-                            inputData.Select(b=>b.CleanWikiPageMembers(KnowledgeBaseFolder,wieConfig.SimpleWordsSeparator)), wieConfig.OutputFile);
+                        IOManager.WriteWithMapper<BandWithPossibleMember, BandWithPossibleMemberMap>(
+                            inputData.SelectMany(b=>b.CleanWikiPageMembers(KnowledgeBaseFolder,wieConfig.SimpleWordsSeparator)).OrderBy(b => b.Member.Name), wieConfig.OutputFile);
                     }
                     catch (Exception e)
                     {
@@ -108,8 +108,8 @@ namespace WIE
                     try
                     {
                         var inputData = IOManager.ReadWithMapper<Artist, ArtistMap>(wieConfig.InputFile).ToList();
-                        IOManager.WriteWithMapper<BandWithExternalInfo, BandWithExternalInfoMap>(
-                            inputData.Select(b => b.LoadWikiPageId().LoadWikiPageMembers(KnowledgeBaseFolder).CleanWikiPageMembers(KnowledgeBaseFolder,wieConfig.SimpleWordsSeparator)), wieConfig.OutputFile);
+                        IOManager.WriteWithMapper<BandWithPossibleMember, BandWithPossibleMemberMap>(
+                            inputData.SelectMany(b => b.LoadWikiPageId().LoadWikiPageMembers(KnowledgeBaseFolder).CleanWikiPageMembers(KnowledgeBaseFolder,wieConfig.SimpleWordsSeparator)), wieConfig.OutputFile);
                     }
                     catch (Exception e)
                     {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Sciendo.Music.Library.Contracts;
 using Sciendo.Wiki.Processor;
@@ -21,7 +22,7 @@ namespace Sciendo.Music.Library.BusinessLogic
                 new ExtractBandMembersFromWikiEngine(knowledgeBaseFolder));
         }
 
-        public static BandWithExternalInfo CleanWikiPageMembers(this BandWithExternalInfo bandWithExternalInfo, string knowledgeBaseFolder, string simpleWordsSeparator)
+        public static IEnumerable<BandWithPossibleMember> CleanWikiPageMembers(this BandWithExternalInfo bandWithExternalInfo, string knowledgeBaseFolder, string simpleWordsSeparator)
         {
             var bandWithWiki = new BandWithWikiInfo();
             return bandWithWiki.CleanMembers(bandWithExternalInfo, new CleanMembersFromWikiEngine(knowledgeBaseFolder,simpleWordsSeparator));

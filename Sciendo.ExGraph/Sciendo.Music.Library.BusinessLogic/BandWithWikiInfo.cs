@@ -48,22 +48,23 @@ namespace Sciendo.Music.Library.BusinessLogic
             return band;
         }
 
-        public BandWithExternalInfo CleanMembers(BandWithExternalInfo band, ProcessingRulesEngine processingRulesEngine)
+        public IEnumerable<BandWithPossibleMember> CleanMembers(BandWithExternalInfo band, ProcessingRulesEngine processingRulesEngine)
         {
-            if (!band.Members.Any())
-                return band;
-            var newBand = new BandWithExternalInfo(band);
-            newBand.ExternalInfoIdentifier = band.ExternalInfoIdentifier;
-            newBand.Members= new List<Artist>();
-            foreach (var existingArtist in band.Members)
+            if (band.Members.Any())
             {
-                foreach (var cleanedArtistName in processingRulesEngine.ApplyAllRules(existingArtist.Name))
+                foreach (var existingArtist in band.Members)
                 {
-                    Log.Information("Cleaned member: {0}", cleanedArtistName);
-                    newBand.Members.Add(new Artist { Name = cleanedArtistName });
+                    foreach (var cleanedArtistName in processingRulesEngine.ApplyAllRules(existingArtist.Name))
+                    {
+                        Log.Information("Cleaned member: {0}", cleanedArtistName);
+                        yield return new BandWithPossibleMember
+                        {
+                            Band = new Artist {ArtistId = band.ArtistId, Name = band.Name},
+                            Member = new Artist {ArtistId = Guid.Empty, Name = cleanedArtistName}
+                        };
+                    }
                 }
             }
-            return newBand;
         }
     }
 }

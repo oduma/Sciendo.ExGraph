@@ -6,18 +6,19 @@ using Sciendo.BandMembers.Processor.KnowledgeBaseLoader;
 
 namespace Sciendo.BandMembers.Processor
 {
-    public class WikiExcludeIfArtistContainsRule:IProcessingRule
+    public class WikiIsolateFullNonArtistsAsRolesRule:IProcessingRule
     {
-        private string[] _nonArtistWords;
+        private string[] _roles;
 
-        public WikiExcludeIfArtistContainsRule(IKnowledgeBaseLoader<string[]> knowledgeBaseLoader, int rulePriority)
+        public WikiIsolateFullNonArtistsAsRolesRule(IKnowledgeBaseLoader<string[]> knowledgeBaseLoader,
+            int rulePriority)
         {
             RulePriority = rulePriority;
-            _nonArtistWords = knowledgeBaseLoader.LoadKnowledgeBaseObject(this.GetType().Name);
+            _roles = knowledgeBaseLoader.LoadKnowledgeBaseObject(this.GetType().Name);
         }
         public IEnumerable<string> ApplyRule(string input)
         {
-            if (_nonArtistWords.FirstOrDefault(input.Contains)==null)
+            if (!_roles.Contains(input))
                 yield return input;
         }
 

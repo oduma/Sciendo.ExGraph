@@ -27,12 +27,18 @@ namespace Sciendo.Music.Library.BusinessLogic
                 new KnowledgeBaseLoaderDictionaryStringString(_knowledgeBaseFolder), 250));
             RegisterProcessingRule(new WikiExcludeFullNonArtistsRule(
                 new KnowledgeBaseLoaderStringArray(_knowledgeBaseFolder),  300));
+            RegisterProcessingRule(new WikiIsolateFullNonArtistsAsRolesRule(
+                new KnowledgeBaseLoaderStringArray(_knowledgeBaseFolder), 350));
+            RegisterProcessingRule(new WikiIsolateFullNonArtistsAsLocationRule(
+                new KnowledgeBaseLoaderStringArray(_knowledgeBaseFolder), 375));
             RegisterProcessingRule(new WikiExcludeIfArtistContainsRule(
                 new KnowledgeBaseLoaderStringArray(_knowledgeBaseFolder), 400));
             RegisterProcessingRule(new WikiExcludeWordsStartingWithRule(
                 new KnowledgeBaseLoaderStringArray(_knowledgeBaseFolder), _simpleWordsSeparator,500));
             RegisterProcessingRule(new WikiExcludeArtistsNotContainingAnyAlphaCharactersRule(
                 new KnowledgeBaseLoaderStringArray(_knowledgeBaseFolder), 600));
+            RegisterProcessingRule(new WikiFinalIsolationOfRolesFromMembersNameRule(
+                new KnowledgeBaseLoaderStringArray(_knowledgeBaseFolder), 9999));
 
 
 

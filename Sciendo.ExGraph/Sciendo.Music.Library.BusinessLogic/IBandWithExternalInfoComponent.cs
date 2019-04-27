@@ -1,4 +1,5 @@
-﻿using Sciendo.BandMembers.Processor;
+﻿using System.Collections.Generic;
+using Sciendo.BandMembers.Processor;
 using Sciendo.Music.Library.Contracts;
 using Sciendo.Wiki.Processor;
 
@@ -10,7 +11,7 @@ namespace Sciendo.Music.Library.BusinessLogic
 
         BandWithExternalInfo LoadMembersFromSource(BandWithExternalInfo band,IWikiPageText wikiPageText,ProcessingRulesEngine processingRulesEngine);
 
-        BandWithExternalInfo CleanMembers(BandWithExternalInfo band, ProcessingRulesEngine processingRulesEngine);
+        IEnumerable<BandWithPossibleMember> CleanMembers(BandWithExternalInfo band, ProcessingRulesEngine processingRulesEngine);
 
 
     }

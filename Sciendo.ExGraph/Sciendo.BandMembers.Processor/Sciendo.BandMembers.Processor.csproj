@@ -33,7 +33,16 @@
     <None Update="KnowledgeBase\WikiExcludeWordsStartingWithRule.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="KnowledgeBase\WikiFinalIsolationOfRolesFromMembersNameRule.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="KnowledgeBase\WikiIndividualMembersExtractRule.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="KnowledgeBase\WikiIsolateFullNonArtistsAsLocationRule.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="KnowledgeBase\WikiIsolateFullNonArtistsAsRolesRule.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="KnowledgeBase\WikiPageTextExtractMembersAreasRule.json">
