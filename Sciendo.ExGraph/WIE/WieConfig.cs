@@ -13,6 +13,9 @@ namespace WIE
         [ConfigProperty("output")]
         public string OutputFile { get; set; }
 
+        [ConfigProperty("error")]
+        public string Error { get; set; }
+
         [ConfigProperty("do")]
         public ProcessType ProcessType { get; set; }
 

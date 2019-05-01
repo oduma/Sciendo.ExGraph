@@ -60,10 +60,20 @@ namespace WIE
                     try
                     {
                         var inputData = IOManager.ReadWithMapper<Artist, ArtistMap>(wieConfig.InputFile).ToList();
+                        var result = inputData.Select(b => b.LoadWikiPageId()).ToList();
                         IOManager.WriteWithMapper<BandWithExternalInfo, BandWithExternalInfoMap>(
-                            inputData.Select(b=>b.LoadWikiPageId()), wieConfig.OutputFile);
+                            result.Where(b=>b.ExternalInfoIdentifier!=0), wieConfig.OutputFile);
+                        if (!string.IsNullOrEmpty(wieConfig.Error))
+                            IOManager.WriteWithMapper<Artist, ArtistMap>(
+                                inputData
+                                    .Join(result, band => band.ArtistId, bandFound => bandFound.ArtistId,
+                                        (band, bandFound) => new {band, bandFound})
+                                    .Where(@t => @t.bandFound.ExternalInfoIdentifier == 0)
+                                    .Select(@t => new Artist {ArtistId = @t.band.ArtistId, Name = @t.band.Name}),
+                                wieConfig.Error);
+
                     }
-                    catch (Exception e)
+                        catch (Exception e)
                     {
                         Log.Error(e, "Cannot read file {0}, possibly not suitable format for action: {1}",
                             wieConfig.InputFile, wieConfig.ProcessType);
@@ -76,10 +86,16 @@ namespace WIE
                     try
                     {
                         var inputData = IOManager.ReadWithMapper<BandWithExternalInfo, BandWithExternalInfoMap>(wieConfig.InputFile).ToList();
+                        var result = inputData.Select(b => b.LoadWikiPageMembers(KnowledgeBaseFolder)).ToList();
+
                         IOManager.WriteWithMapper<BandWithExternalInfo, BandWithExternalInfoMap>(
-                            inputData.Select(b=>b.LoadWikiPageMembers(KnowledgeBaseFolder)), wieConfig.OutputFile);
+                            result.Where(b=>b.Members.Count>0), wieConfig.OutputFile);
+                        if (!string.IsNullOrEmpty(wieConfig.Error))
+                            IOManager.WriteWithMapper<BandWithExternalInfo, BandWithExternalInfoMap>(
+                                result.Where(b => b.Members.Count == 0), wieConfig.Error);
+
                     }
-                    catch (Exception e)
+                        catch (Exception e)
                     {
                         Log.Error(e, "Cannot read file {0}, possibly not suitable format for action: {1}",
                             wieConfig.InputFile, wieConfig.ProcessType);
@@ -152,7 +168,6 @@ namespace WIE
                 Log.Error("Nothing to do here.");
                 return false;
             }
-
             return true;
         }
 

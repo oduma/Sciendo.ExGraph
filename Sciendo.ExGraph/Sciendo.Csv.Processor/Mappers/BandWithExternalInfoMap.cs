@@ -11,6 +11,7 @@ namespace Sciendo.Csv.Processor.Mappers
             Map(m => m.Name).Name("Name");
             Map(m => m.ArtistId).Name("Id").TypeConverter<ArtistIdTypeConverter>();
             Map(m => m.ExternalInfoIdentifier).Name("ExternalInfoId");
+            Map(m => m.LanguageType).Name("LanguageType");
             Map(m => m.Members).Name("Members").TypeConverter<MembersFlattenTypeConverter>();
         }
     }

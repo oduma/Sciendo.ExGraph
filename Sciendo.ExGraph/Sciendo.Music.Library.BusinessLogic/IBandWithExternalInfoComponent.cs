@@ -7,7 +7,7 @@ namespace Sciendo.Music.Library.BusinessLogic
 {
     public interface IBandWithExternalInfoComponent
     {
-        BandWithExternalInfo LoadExternalInfoIdFromSource(Artist artist, IWikiSearch wikiSearch);
+        BandWithExternalInfo LoadExternalInfoFromSource(Artist artist, Dictionary<LanguageType,IWikiSearch> wikiSearches);
 
         BandWithExternalInfo LoadMembersFromSource(BandWithExternalInfo band,IWikiPageText wikiPageText,ProcessingRulesEngine processingRulesEngine);
 

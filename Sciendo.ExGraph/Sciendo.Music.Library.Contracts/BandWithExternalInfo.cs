@@ -18,6 +18,8 @@ namespace Sciendo.Music.Library.Contracts
 
         public long ExternalInfoIdentifier { get; set; }
 
+        public LanguageType LanguageType { get; set; }
+
         public List<Artist> Members { get; set; }
     }
 }

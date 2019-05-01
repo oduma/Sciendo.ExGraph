@@ -12,13 +12,22 @@ namespace Sciendo.Music.Library.BusinessLogic
         public static BandWithExternalInfo LoadWikiPageId(this Artist artist)
         {
             BandWithWikiInfo bandWithWikiInfo = new BandWithWikiInfo();
-            return bandWithWikiInfo.LoadExternalInfoIdFromSource(artist, new WikiSearch(new SearchUrlProvider()));
+            return bandWithWikiInfo.LoadExternalInfoFromSource(artist,
+                new Dictionary<LanguageType, IWikiSearch>
+                {
+                    {LanguageType.English, new WikiSearch(new EnglishSearchUrlProvider())},
+                    {LanguageType.Spanish, new WikiSearch(new SpanishSearchUrlProvider())},
+                    {LanguageType.French, new WikiSearch(new FrenchSearchUrlProvider())},
+                    {LanguageType.German, new WikiSearch(new GermanSearchUrlProvider()) },
+                    {LanguageType.Portuguese, new WikiSearch(new ProtugueseSearchUrlProvider()) },
+                });
         }
 
         public static BandWithExternalInfo LoadWikiPageMembers(this BandWithExternalInfo bandWithExternalInfo, string knowledgeBaseFolder)
         {
             var bandWithWiki = new BandWithWikiInfo();
-            return bandWithWiki.LoadMembersFromSource(bandWithExternalInfo, new WikiPageText(new PageUrlProvider()),
+            return bandWithWiki.LoadMembersFromSource(bandWithExternalInfo,
+                new WikiPageText(new PageUrlProvider()),
                 new ExtractBandMembersFromWikiEngine(knowledgeBaseFolder));
         }
 

@@ -12,23 +12,28 @@ namespace Sciendo.Music.Library.BusinessLogic
     public class BandWithWikiInfo:IBandWithExternalInfoComponent
     {
 
-        public BandWithExternalInfo LoadExternalInfoIdFromSource(Artist artist, IWikiSearch wikiSearch)
+        public BandWithExternalInfo LoadExternalInfoFromSource(Artist artist, Dictionary<LanguageType,IWikiSearch> wikiSearches)
         {
             if (artist==null || string.IsNullOrEmpty(artist.Name))
                 return null;
-            wikiSearch.Search(artist.Name);
-            if (wikiSearch.Query.SearchInfo.TotalHits > 0)
+            foreach (var language in wikiSearches.Keys)
             {
-                foreach (var hit in wikiSearch.Query.SearchResults)
+                wikiSearches[language].Search(artist.Name);
+                if (wikiSearches[language].Query.SearchInfo.TotalHits > 0)
                 {
-                    if (hit.Title.ToLower() == artist.Name)
+                    foreach (var hit in wikiSearches[language].Query.SearchResults)
                     {
-                        Log.Information("Band found {0} in WikiPedia with pageId {1}", artist.Name, hit.PageId);
-                        var band = new BandWithExternalInfo(artist);
-                        band.ExternalInfoIdentifier = hit.PageId;
-                        return band;
+                        if (hit.Title.ToLower() == artist.Name)
+                        {
+                            Log.Information("Band found {0} in WikiPedia with pageId {1} in language {2}", artist.Name, hit.PageId, language);
+                            var band = new BandWithExternalInfo(artist);
+                            band.ExternalInfoIdentifier = hit.PageId;
+                            band.LanguageType = language;
+                            return band;
+                        }
                     }
                 }
+
             }
             Log.Information("Band not found {0} in WikiPedia", artist.Name);
             return new BandWithExternalInfo(artist);

@@ -1,1 +1,6 @@
-﻿[ "(?<=current_members)(.*?)(?=\n)", "(?<=past_members)(.*?)(?=\n)" ]
+﻿[
+  "(?<=current_members)(.*?)(?=\n)",
+  "(?<=past_members)(.*?)(?=\n)",
+  "(?<=Members ===\n)(.*?)(?=\n\n== Discography)",
+  "(?<=|members)(.*?)(?=\n)"
+]
