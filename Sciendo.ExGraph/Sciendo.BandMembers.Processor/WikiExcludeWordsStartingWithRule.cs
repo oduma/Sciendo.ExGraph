@@ -14,7 +14,7 @@ namespace Sciendo.BandMembers.Processor
         public WikiExcludeWordsStartingWithRule(IKnowledgeBaseLoader<string[]> knowledgeBaseLoader, string simpleWordsSeparator,int rulePriority)
         {
             _simpleWordsSeparator = simpleWordsSeparator;
-            _startOfWords = knowledgeBaseLoader.LoadKnowledgeBaseObject(this.GetType().Name);
+            _startOfWords = knowledgeBaseLoader.LoadLanguageNeutralKnowledgeBaseObject(this.GetType().Name);
             RulePriority = rulePriority;
         }
         public IEnumerable<string> ApplyRule(string input)

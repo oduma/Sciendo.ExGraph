@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Sciendo.Music.Library.Contracts;
 
 namespace Sciendo.BandMembers.Processor
 {
     public abstract class ProcessingRulesEngine
     {
         protected abstract void LoadSetOfRules();
+
         public List<IProcessingRule> ProcessingRules { get; private set; }
         protected void RegisterProcessingRule(IProcessingRule processingRule)
         {

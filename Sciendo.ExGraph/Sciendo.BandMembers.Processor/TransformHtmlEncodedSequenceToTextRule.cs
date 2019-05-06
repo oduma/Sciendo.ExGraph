@@ -12,7 +12,7 @@ namespace Sciendo.BandMembers.Processor
         public TransformHtmlEncodedSequenceToTextRule(IKnowledgeBaseLoader<Dictionary<string, string>> knowledgeBaseLoader,
             int rulePriority)
         {
-            _htmlToPlainTransformation = knowledgeBaseLoader.LoadKnowledgeBaseObject(this.GetType().Name);
+            _htmlToPlainTransformation = knowledgeBaseLoader.LoadLanguageNeutralKnowledgeBaseObject(this.GetType().Name);
             RulePriority = rulePriority;
         }
         public IEnumerable<string> ApplyRule(string input)

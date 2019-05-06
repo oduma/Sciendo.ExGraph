@@ -22,5 +22,6 @@ namespace Sciendo.BandMembers.Processor.Tests.Unit
             var result = wikiClean.ApplyRule("1967–present").ToList();
             Assert.IsTrue(result.Count==0);
         }
+
     }
 }

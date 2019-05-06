@@ -12,7 +12,7 @@ namespace Sciendo.BandMembers.Processor
         public WikiIndividualMembersExtractRule(IKnowledgeBaseLoader<string[]> knowledgeBaseLoader, int rulePriority)
         {
             RulePriority = rulePriority;
-            _bandMembersSeparators=knowledgeBaseLoader.LoadKnowledgeBaseObject(this.GetType().Name);
+            _bandMembersSeparators=knowledgeBaseLoader.LoadLanguageNeutralKnowledgeBaseObject(this.GetType().Name);
         }
         public IEnumerable<string> ApplyRule(string input)
         {

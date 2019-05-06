@@ -12,7 +12,7 @@ namespace Sciendo.BandMembers.Processor
 
         public WikiExcludeAllHtmlCommentsAndRefsRule(IKnowledgeBaseLoader<string[]> knowledgeBaseLoader, int rulePriority)
         {
-            _commentsMatchingPatterns = knowledgeBaseLoader.LoadKnowledgeBaseObject(this.GetType().Name);
+            _commentsMatchingPatterns = knowledgeBaseLoader.LoadLanguageNeutralKnowledgeBaseObject(this.GetType().Name);
             RulePriority = rulePriority;
         }
         public IEnumerable<string> ApplyRule(string input)

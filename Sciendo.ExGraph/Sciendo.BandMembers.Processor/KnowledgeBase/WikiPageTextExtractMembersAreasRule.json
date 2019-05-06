@@ -1,6 +1,27 @@
-﻿[
-  "(?<=current_members)(.*?)(?=\n)",
-  "(?<=past_members)(.*?)(?=\n)",
-  "(?<=Members ===\n)(.*?)(?=\n\n== Discography)",
-  "(?<=|members)(.*?)(?=\n)"
-]
+﻿{
+  "English": [
+    "(?<=current_members)(.*?)(?=\n)",
+    "(?<=past_members)(.*?)(?=\n)",
+    "(?<=Members ===\n)(.*?)(?=\n\n== Discography)",
+    "(?<=|members)(.*?)(?=\n)"
+  ],
+  "German": [
+    "(?<=Besetzung)(.*?)(?=\n)",
+    "(?<=Ehemalige)(.*?)(?=\n)"
+  ],
+  "French": [
+    "(?<=membres actuels)(.*?)(?=\n)",
+    "(?<=ex membres)(.*?)(?=\n)"
+  ],
+  "Portuguese": [
+    "(?<=integrantes)(.*?)(?=\n)",
+    "(?<=exintegrantes)(.*?)(?=\n)"
+  ],
+  "Spanish": [
+    "(?<=Miembros)(.*?)(?=\n)",
+    "(?<=Miembros antiguos)(.*?)(?=\n)"
+  ],
+  "Swedish": [
+    "(?<=medlemmar)(.*?)(?=\n)"
+  ]
+}

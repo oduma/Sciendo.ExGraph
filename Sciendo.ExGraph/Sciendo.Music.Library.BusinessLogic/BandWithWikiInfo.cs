@@ -13,6 +13,8 @@ namespace Sciendo.Music.Library.BusinessLogic
     {
 
         private const string BandKeyword = "(band)";
+
+        
         public BandWithExternalInfo LoadExternalInfoFromSource(Artist artist, Dictionary<LanguageType,IWikiSearch> wikiSearches)
         {
             if (artist==null || string.IsNullOrEmpty(artist.Name))

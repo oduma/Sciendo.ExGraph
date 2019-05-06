@@ -13,7 +13,7 @@ namespace Sciendo.BandMembers.Processor
         public WikiExcludeIfArtistContainsRule(IKnowledgeBaseLoader<string[]> knowledgeBaseLoader, int rulePriority)
         {
             RulePriority = rulePriority;
-            _nonArtistWords = knowledgeBaseLoader.LoadKnowledgeBaseObject(this.GetType().Name);
+            _nonArtistWords = knowledgeBaseLoader.LoadLanguageNeutralKnowledgeBaseObject(this.GetType().Name);
         }
         public IEnumerable<string> ApplyRule(string input)
         {

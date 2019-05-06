@@ -24,7 +24,7 @@ namespace Sciendo.BandMembers.Processor
             IKnowledgeBaseLoader<Dictionary<string, string>> knowledgeBaseLoader, int rulePriority)
         {
             RulePriority = rulePriority;
-            _latinAlphabetTransformations = knowledgeBaseLoader.LoadKnowledgeBaseObject(this.GetType().Name);
+            _latinAlphabetTransformations = knowledgeBaseLoader.LoadLanguageNeutralKnowledgeBaseObject(this.GetType().Name);
         }
         public int RulePriority { get; }
     }

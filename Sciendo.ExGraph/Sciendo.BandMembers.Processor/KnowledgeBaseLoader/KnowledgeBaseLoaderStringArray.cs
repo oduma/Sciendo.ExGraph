@@ -1,5 +1,7 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using Newtonsoft.Json;
+using Sciendo.Music.Library.Contracts;
 
 namespace Sciendo.BandMembers.Processor.KnowledgeBaseLoader
 {
@@ -11,10 +13,16 @@ namespace Sciendo.BandMembers.Processor.KnowledgeBaseLoader
         {
             _knowledgeBaseFolder = knowledgeBaseFolder;
         }
-        public string[] LoadKnowledgeBaseObject(string forRuleName)
+        public string[] LoadLanguageNeutralKnowledgeBaseObject(string forRuleName)
         {
             return JsonConvert.DeserializeObject<string[]>(File.ReadAllText($"{_knowledgeBaseFolder}\\{forRuleName}.json"));
 
+        }
+
+        public string[] LoadKnowledgeBaseObjectForLanguage(string forRuleName, LanguageType languageType)
+        {
+            return JsonConvert.DeserializeObject<Dictionary<LanguageType, string[]>>(
+                File.ReadAllText($"{_knowledgeBaseFolder}\\{forRuleName}.json"))[languageType];
         }
     }
 }

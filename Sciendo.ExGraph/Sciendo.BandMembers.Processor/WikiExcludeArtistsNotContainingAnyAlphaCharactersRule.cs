@@ -14,7 +14,7 @@ namespace Sciendo.BandMembers.Processor
         public WikiExcludeArtistsNotContainingAnyAlphaCharactersRule(IKnowledgeBaseLoader<string[]> knowledgeBaseLoader,
             int rulePriority)
         {
-            _matchPatterns = knowledgeBaseLoader.LoadKnowledgeBaseObject(this.GetType().Name);
+            _matchPatterns = knowledgeBaseLoader.LoadLanguageNeutralKnowledgeBaseObject(this.GetType().Name);
             RulePriority = rulePriority;
         }
         public IEnumerable<string> ApplyRule(string input)

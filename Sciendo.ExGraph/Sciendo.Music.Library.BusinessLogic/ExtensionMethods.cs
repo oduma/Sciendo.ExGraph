@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Sciendo.Music.Library.Contracts;
 using Sciendo.Wiki.Processor;
+using Sciendo.Wiki.Processor.PageUrlProviders;
 using Sciendo.Wiki.Processor.SearchUrlProviders;
 
 namespace Sciendo.Music.Library.BusinessLogic
@@ -25,12 +26,35 @@ namespace Sciendo.Music.Library.BusinessLogic
                 });
         }
 
-        public static BandWithExternalInfo LoadWikiPageMembers(this BandWithExternalInfo bandWithExternalInfo, string knowledgeBaseFolder)
+        public static BandWithExternalInfo LoadWikiPageMembers(this BandWithExternalInfo bandWithExternalInfo, 
+            string knowledgeBaseFolder)
         {
             var bandWithWiki = new BandWithWikiInfo();
+
             return bandWithWiki.LoadMembersFromSource(bandWithExternalInfo,
-                new WikiPageText(new PageUrlProvider()),
-                new ExtractBandMembersFromWikiEngine(knowledgeBaseFolder));
+                new WikiPageText(GetPageUrlProvider(bandWithExternalInfo.LanguageType)),
+                new ExtractBandMembersFromWikiEngine(knowledgeBaseFolder,bandWithExternalInfo.LanguageType));
+        }
+
+        private static UrlProviderBase GetPageUrlProvider(LanguageType languageType)
+        {
+            switch (languageType)
+            {
+                case LanguageType.English:
+                    return new EnglishPageUrlProvider();
+                case LanguageType.French:
+                    return new FrenchPageUrlProvider();
+                case LanguageType.German:
+                    return new GermanPageUrlProvider();
+                case LanguageType.Portuguese:
+                    return new PortuguesePageUrlProvider();
+                case LanguageType.Spanish:
+                    return new SpanishPageUrlProvider();
+                case LanguageType.Swedish:
+                    return  new SwedishPageUrlProvider();
+                default:
+                    return new EnglishPageUrlProvider();
+            }
         }
 
         public static IEnumerable<BandWithPossibleMember> CleanWikiPageMembers(this BandWithExternalInfo bandWithExternalInfo, string knowledgeBaseFolder, string simpleWordsSeparator)

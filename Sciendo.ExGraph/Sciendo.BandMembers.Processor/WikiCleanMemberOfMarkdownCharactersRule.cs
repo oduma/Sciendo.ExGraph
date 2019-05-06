@@ -12,7 +12,7 @@ namespace Sciendo.BandMembers.Processor
         public WikiCleanMemberOfMarkdownCharactersRule(IKnowledgeBaseLoader<string[]> knowledgeBaseLoader, int rulePriority)
         {
             RulePriority = rulePriority;
-            _wikiPediaCharacters=knowledgeBaseLoader.LoadKnowledgeBaseObject(this.GetType().Name);
+            _wikiPediaCharacters=knowledgeBaseLoader.LoadLanguageNeutralKnowledgeBaseObject(this.GetType().Name);
         }
         public IEnumerable<string> ApplyRule(string input)
         {

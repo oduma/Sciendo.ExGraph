@@ -14,7 +14,7 @@ namespace Sciendo.BandMembers.Processor
             int rulePriority)
         {
             RulePriority = rulePriority;
-            _roles = knowledgeBaseLoader.LoadKnowledgeBaseObject(this.GetType().Name);
+            _roles = knowledgeBaseLoader.LoadLanguageNeutralKnowledgeBaseObject(this.GetType().Name);
         }
         public IEnumerable<string> ApplyRule(string input)
         {

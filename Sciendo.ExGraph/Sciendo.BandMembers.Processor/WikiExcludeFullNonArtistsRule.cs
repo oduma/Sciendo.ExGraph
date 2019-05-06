@@ -14,7 +14,7 @@ namespace Sciendo.BandMembers.Processor
             int rulePriority)
         {
             RulePriority = rulePriority;
-            _nonArtistsToExclude = knowledgeBaseLoader.LoadKnowledgeBaseObject(this.GetType().Name);
+            _nonArtistsToExclude = knowledgeBaseLoader.LoadLanguageNeutralKnowledgeBaseObject(this.GetType().Name);
         }
         public IEnumerable<string> ApplyRule(string input)
         {
