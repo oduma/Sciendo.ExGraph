@@ -10,6 +10,7 @@ namespace Sciendo.Music.Library.Contracts
         Spanish,
         French,
         German,
-        Portuguese
+        Portuguese,
+        Swedish,
     }
 }

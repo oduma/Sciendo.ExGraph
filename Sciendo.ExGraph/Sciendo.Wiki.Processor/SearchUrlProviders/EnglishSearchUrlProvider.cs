@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Sciendo.Wiki.Processor
+﻿namespace Sciendo.Wiki.Processor.SearchUrlProviders
 {
     public class EnglishSearchUrlProvider:SearchUrlProviderBase
     {

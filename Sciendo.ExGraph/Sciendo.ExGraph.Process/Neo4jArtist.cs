@@ -11,13 +11,13 @@ namespace Sciendo.ExGraph.Process
         public string Name { get; set; }
         [Neo4jProperty("artistID", Neo4jType.None)]
         [Neo4jProperty("band.artistID",Neo4jType.None)]
-        public Guid ArtistId { get; set; }
+        public Guid Id { get; set; }
 
         public static implicit operator Neo4jArtist(Artist fromType)
         {
             Neo4jArtist neo4JArtist= new Neo4jArtist();
             neo4JArtist.Name = fromType.Name;
-            neo4JArtist.ArtistId = fromType.ArtistId;
+            neo4JArtist.Id = fromType.ArtistId;
             return neo4JArtist;
         }
 
@@ -25,7 +25,7 @@ namespace Sciendo.ExGraph.Process
         {
             Artist artist = new Artist();
             artist.Name = fromType.Name;
-            artist.ArtistId = fromType.ArtistId;
+            artist.ArtistId = fromType.Id;
             return artist;
         }
     }

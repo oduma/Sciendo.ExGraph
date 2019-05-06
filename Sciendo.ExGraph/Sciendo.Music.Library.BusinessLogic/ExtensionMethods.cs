@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Sciendo.Music.Library.Contracts;
 using Sciendo.Wiki.Processor;
+using Sciendo.Wiki.Processor.SearchUrlProviders;
 
 namespace Sciendo.Music.Library.BusinessLogic
 {
@@ -20,6 +21,7 @@ namespace Sciendo.Music.Library.BusinessLogic
                     {LanguageType.French, new WikiSearch(new FrenchSearchUrlProvider())},
                     {LanguageType.German, new WikiSearch(new GermanSearchUrlProvider()) },
                     {LanguageType.Portuguese, new WikiSearch(new ProtugueseSearchUrlProvider()) },
+                    {LanguageType.Swedish,new WikiSearch(new SwedishSearchUrlProvider()) },
                 });
         }
 

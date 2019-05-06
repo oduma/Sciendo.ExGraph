@@ -12,31 +12,50 @@ namespace Sciendo.Music.Library.BusinessLogic
     public class BandWithWikiInfo:IBandWithExternalInfoComponent
     {
 
+        private const string BandKeyword = "(band)";
         public BandWithExternalInfo LoadExternalInfoFromSource(Artist artist, Dictionary<LanguageType,IWikiSearch> wikiSearches)
         {
             if (artist==null || string.IsNullOrEmpty(artist.Name))
                 return null;
+            BandWithExternalInfo band = null;
             foreach (var language in wikiSearches.Keys)
             {
-                wikiSearches[language].Search(artist.Name);
-                if (wikiSearches[language].Query.SearchInfo.TotalHits > 0)
-                {
-                    foreach (var hit in wikiSearches[language].Query.SearchResults)
-                    {
-                        if (hit.Title.ToLower() == artist.Name)
-                        {
-                            Log.Information("Band found {0} in WikiPedia with pageId {1} in language {2}", artist.Name, hit.PageId, language);
-                            var band = new BandWithExternalInfo(artist);
-                            band.ExternalInfoIdentifier = hit.PageId;
-                            band.LanguageType = language;
-                            return band;
-                        }
-                    }
-                }
-
+                band = GetWikiPageIdFor(wikiSearches[language], language, artist.Name, artist);
+                if (band != null)
+                    return band;
             }
+
+            band = GetWikiPageIdFor(wikiSearches[LanguageType.English], LanguageType.English,
+                $"{artist.Name} {BandKeyword}", artist);
+            if (band != null)
+                return band;
+
             Log.Information("Band not found {0} in WikiPedia", artist.Name);
             return new BandWithExternalInfo(artist);
+        }
+
+        private BandWithExternalInfo GetWikiPageIdFor(IWikiSearch wikiSearch, LanguageType languageType,
+            string searchFor, Artist artist)
+        {
+            wikiSearch.Search(searchFor);
+            if (wikiSearch.Query.SearchInfo.TotalHits > 0)
+            {
+                foreach (var hit in wikiSearch.Query.SearchResults)
+                {
+                    if (hit.Title.ToLower() == searchFor)
+                    {
+                        Log.Information("Band found {0} in WikiPedia with pageId {1} in language {2}",
+                            searchFor, hit.PageId, languageType);
+                        var band = new BandWithExternalInfo(artist);
+                        band.ExternalInfoIdentifier = hit.PageId;
+                        band.LanguageType = languageType;
+                        return band;
+                    }
+                }
+            }
+
+            return null;
+
         }
 
         public BandWithExternalInfo LoadMembersFromSource(BandWithExternalInfo band, IWikiPageText wikiPageText,ProcessingRulesEngine processingRulesEngine)
